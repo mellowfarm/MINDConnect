@@ -3,7 +3,7 @@ import OverviewTab from './OverviewTab';
 import RegistrationsTab from './RegistrationsTab';
 import ActivitiesTab from './ActivitiesTab';
 
-function AdminDashboard({ activities, registrations }) {
+function AdminDashboard({ activities, registrations, onReload }) {
     const [activeTab, setActiveTab] = useState('overview');
 
     const totalRegistrations = registrations.length;
@@ -16,7 +16,7 @@ function AdminDashboard({ activities, registrations }) {
             {/* Admin Header */}
             <div className="admin-nav text-white p-6 shadow-lg">
                 <div className="container mx-auto">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center space-x-4">
                             <div className="text-4xl">👨‍💼</div>
                             <div>
@@ -24,19 +24,21 @@ function AdminDashboard({ activities, registrations }) {
                                 <p className="text-gray-300">MINDS Activity Management</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-3 gap-6">
-                            <div className="bg-white bg-opacity-10 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold">{totalActivities}</div>
-                                <div className="text-sm text-gray-300">Activities</div>
-                            </div>
-                            <div className="bg-white bg-opacity-10 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold">{totalRegistrations}</div>
-                                <div className="text-sm text-gray-300">Registrations</div>
-                            </div>
-                            <div className="bg-white bg-opacity-10 rounded-lg p-4 text-center">
-                                <div className="text-2xl font-bold">{totalRegistered}/{totalCapacity}</div>
-                                <div className="text-sm text-gray-300">Capacity</div>
-                            </div>
+                    </div>
+                    
+                    {/* Stats Cards - Now on their own row */}
+                    <div className="grid grid-cols-3 gap-6 max-w-2xl">
+                        <div className="bg-white bg-opacity-10 rounded-lg p-4 text-center">
+                            <div className="text-2xl font-bold">{totalActivities}</div>
+                            <div className="text-sm text-gray-300">Activities</div>
+                        </div>
+                        <div className="bg-white bg-opacity-10 rounded-lg p-4 text-center">
+                            <div className="text-2xl font-bold">{totalRegistrations}</div>
+                            <div className="text-sm text-gray-300">Registrations</div>
+                        </div>
+                        <div className="bg-white bg-opacity-10 rounded-lg p-4 text-center">
+                            <div className="text-2xl font-bold">{totalRegistered}/{totalCapacity}</div>
+                            <div className="text-sm text-gray-300">Capacity</div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +92,7 @@ function AdminDashboard({ activities, registrations }) {
                             <RegistrationsTab registrations={registrations} activities={activities} />
                         )}
                         {activeTab === 'activities' && (
-                            <ActivitiesTab activities={activities} />
+                            <ActivitiesTab activities={activities} onReload={onReload} />
                         )}
                     </div>
                 </div>
