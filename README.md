@@ -105,6 +105,7 @@ const ADMIN_PASSWORD = 'your-new-password';
 ## 🤝 Contributing
 
 **Team:** LadyBug
+
 **Members:** Nicha Ing See, Jovan Teo Yi
 
 ## 📄 License
