@@ -152,8 +152,12 @@ function App() {
                 <div className="container mx-auto px-4 py-12">
                     {/* Header */}
                     <div className="text-center mb-12">
-                        <div className="inline-block p-6 bg-white rounded-full shadow-lg mb-6">
-                            <div className="text-6xl">🏠</div>
+                        <div className="inline-block p-6 bg-white rounded-xl shadow-lg mb-6">
+                        <img 
+                            src="/MINDS-logo.png" 
+                            alt="MINDS Logo" 
+                            className="w-24 h-12 object-contain"
+                        />
                         </div>
                         <h1 className="heading-font text-5xl font-bold text-gray-800 mb-4">
                             Welcome to MINDConnect!
