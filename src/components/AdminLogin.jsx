@@ -55,12 +55,6 @@ function AdminLogin({ onLogin }) {
                         🔓 Access Admin Dashboard
                     </button>
                 </form>
-
-                <div className="mt-6 text-center">
-                    <p className="text-sm text-gray-500">
-                        💡 Hint: Password is <code className="bg-gray-100 px-2 py-1 rounded">minds2026</code>
-                    </p>
-                </div>
             </div>
         </div>
     );
