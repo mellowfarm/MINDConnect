@@ -15,9 +15,6 @@ function RegistrationsTab({ registrations, activities }) {
         <div className="space-y-4">
             <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-bold text-gray-800">All Registrations</h3>
-                <button className="btn-primary px-6 py-2 rounded-lg text-white font-medium">
-                    📥 Export to Excel
-                </button>
             </div>
             <div className="overflow-x-auto">
                 <table className="w-full">
@@ -28,7 +25,6 @@ function RegistrationsTab({ registrations, activities }) {
                             <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Email</th>
                             <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Phone</th>
                             <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Type</th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Date</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -42,9 +38,6 @@ function RegistrationsTab({ registrations, activities }) {
                                     <span className="inline-block px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded">
                                         {reg.relationship}
                                     </span>
-                                </td>
-                                <td className="px-4 py-3 text-gray-600 text-sm">
-                                    {new Date(reg.registeredAt).toLocaleDateString()}
                                 </td>
                             </tr>
                         ))}

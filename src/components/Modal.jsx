@@ -21,7 +21,7 @@ function Modal({ activity, onClose, onSubmit }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(formData);
-        alert('🎉 Registration successful! You will receive a confirmation email shortly.');
+        alert('🎉 Registration successful!');
     };
 
     return (
@@ -151,21 +151,6 @@ function Modal({ activity, onClose, onSubmit }) {
                             required
                             placeholder="+65 1234 5678"
                             className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 transition-all"
-                        />
-                    </div>
-
-                    {/* Special Needs */}
-                    <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            Special Needs or Requirements: (Optional)
-                        </label>
-                        <textarea
-                            name="specialNeeds"
-                            value={formData.specialNeeds}
-                            onChange={handleChange}
-                            rows="3"
-                            placeholder="Any dietary restrictions, mobility requirements, or other needs we should know about..."
-                            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 transition-all resize-none"
                         />
                     </div>
 
