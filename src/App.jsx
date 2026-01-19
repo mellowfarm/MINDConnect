@@ -19,6 +19,7 @@ function App() {
     const [selectedActivity, setSelectedActivity] = useState(null);
     const [registrations, setRegistrations] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchQuery, setSearchQuery] = useState('');
 
     // Load activities and registrations from Firebase on mount
     useEffect(() => {
@@ -152,19 +153,42 @@ function App() {
                 <div className="container mx-auto px-4 py-12">
                     {/* Header */}
                     <div className="text-center mb-12">
-                        <div className="inline-block p-6 bg-white rounded-xl shadow-lg mb-6">
-                        <img 
-                            src="/MINDS-logo.png" 
-                            alt="MINDS Logo" 
-                            className="w-24 h-12 object-contain"
-                        />
+                        <div className="inline-block bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+                            <img 
+                                src="/MINDS-logo.png" 
+                                alt="MINDS Logo" 
+                                className="w-50 h-25"
+                            />
                         </div>
                         <h1 className="heading-font text-5xl font-bold text-gray-800 mb-4">
                             Welcome to MINDConnect!
                         </h1>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
                             Discover and join exciting activities at MINDS. Easy registration for individuals and caregivers!
                         </p>
+                    
+                        {/* Search Bar */}
+                        {activities.length > 0 && (
+                            <div className="max-w-2xl mx-auto">
+                                <div className="relative">
+                                    <input
+                                        type="text"
+                                        placeholder="🔍 Search activities by name or category..."
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-full focus:border-blue-500 focus:outline-none shadow-lg"
+                                    />
+                                    {searchQuery && (
+                                        <button
+                                            onClick={() => setSearchQuery('')}
+                                            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                        >
+                                            ✕
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* Activity Cards Grid */}
@@ -175,16 +199,41 @@ function App() {
                             <p className="text-gray-600">Check back soon for upcoming activities!</p>
                         </div>
                     ) : (
-                        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                            {activities.map((activity, index) => (
-                                <ActivityCard
-                                    key={activity.id}
-                                    activity={activity}
-                                    staggerClass={`stagger-${(index % 4) + 1}`}
-                                    onRegisterClick={setSelectedActivity}
-                                />
-                            ))}
-                        </div>
+                        <>
+                            {/* Filter activities based on search */}
+                            {(() => {
+                                const filteredActivities = activities.filter(activity =>
+                                    activity.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                    activity.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                    activity.description.toLowerCase().includes(searchQuery.toLowerCase())
+                                );
+
+                                return filteredActivities.length === 0 ? (
+                                    <div className="text-center py-12">
+                                        <div className="text-6xl mb-4">🔍</div>
+                                        <h3 className="text-2xl font-semibold text-gray-800 mb-2">No Activities Found</h3>
+                                        <p className="text-gray-600">Try searching for something else!</p>
+                                        <button
+                                            onClick={() => setSearchQuery('')}
+                                            className="mt-4 btn-primary px-6 py-2 rounded-lg text-white font-medium"
+                                        >
+                                            Clear Search
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                                        {filteredActivities.map((activity, index) => (
+                                            <ActivityCard
+                                                key={activity.id}
+                                                activity={activity}
+                                                staggerClass={`stagger-${(index % 4) + 1}`}
+                                                onRegisterClick={setSelectedActivity}
+                                            />
+                                        ))}
+                                    </div>
+                                );
+                            })()}
+                        </>
                     )}
                 </div>
             ) : (
