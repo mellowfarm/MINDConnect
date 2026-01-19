@@ -91,10 +91,9 @@ const ADMIN_PASSWORD = 'your-new-password';
 1. Click "Switch to Admin" and enter password
 2. View dashboard with real-time statistics
 3. Manage activities (add, edit, delete)
-4. View all registrations and export data
+4. View all registrations and print data
 
 ## 🌟 Future Enhancements
-
 - [ ] Email notifications for registrations
 - [ ] SMS reminders before activities
 - [ ] User accounts and login
@@ -102,9 +101,7 @@ const ADMIN_PASSWORD = 'your-new-password';
 - [ ] Recurring activities
 - [ ] Payment integration
 - [ ] Export registrations to Excel/CSV
-- [ ] Advanced filtering and search
 - [ ] Multi-language support
-- [ ] Calendar integration
 
 ## 🤝 Contributing
 
