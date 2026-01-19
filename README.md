@@ -21,10 +21,12 @@ A modern web application designed for MINDS Singapore to streamline activity reg
 
 ### Admin Features
 - 🔐 **Secure Authentication** - Password-protected admin access
-- ➕ **Activity Management** - Create, edit, and delete activities
-- 📋 **Registration Tracking** - View all registrations in one place
-- 📊 **Dashboard Overview** - Real-time statistics and capacity monitoring
-- 💾 **Cloud Database** - All data stored securely in Firebase
+- ➕ **Activity Management** - Create, edit, and delete activities with ease
+- 📋 **Registration Tracking** - View all registrations in a comprehensive table
+- 🖨️ **Print Registration List** - Print-friendly registration reports
+- 📊 **Dashboard Overview** - Real-time statistics showing activities, registrations, and capacity
+- 💾 **Cloud Database** - All data stored securely in Firebase Firestore
+- ⚡ **Real-time Updates** - Changes reflect immediately across all users
 
 ## 🛠️ Technology Stack
 
