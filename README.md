@@ -12,10 +12,12 @@ A modern web application designed for MINDS Singapore to streamline activity reg
 
 ### User Features
 - 📅 **Browse Activities** - View all available activities with detailed information
+- 🔍 **Search & Filter** - Quickly find activities by name, category, or description
+- 📱 **Grid View** - Classic card layout with detailed activity information
+- 🗓️ **Calendar View** - Visual monthly calendar showing all scheduled activities
 - ✅ **Easy Registration** - Simple, accessible registration forms
-- 👥 **Caregiver Support** - Register on behalf of individuals
-- 📊 **Real-time Availability** - See spots remaining for each activity
-- ♿ **Special Needs** - Option to specify dietary restrictions, mobility requirements, etc.
+- 📊 **Real-time Availability** - See spots remaining for each activity with visual progress bars
+- 📱 **Mobile Responsive** - Works seamlessly on all devices
 
 ### Admin Features
 - 🔐 **Secure Authentication** - Password-protected admin access

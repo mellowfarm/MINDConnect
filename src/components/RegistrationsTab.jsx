@@ -1,6 +1,10 @@
 import React from 'react';
 
 function RegistrationsTab({ registrations, activities }) {
+    const handlePrint = () => {
+        window.print();
+    };
+
     if (registrations.length === 0) {
         return (
             <div className="text-center py-12">
@@ -15,6 +19,12 @@ function RegistrationsTab({ registrations, activities }) {
         <div className="space-y-4">
             <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-bold text-gray-800">All Registrations</h3>
+                <button 
+                    onClick={handlePrint}
+                    className="btn-primary px-6 py-2 rounded-lg text-white font-medium hover:shadow-lg transition-all"
+                >
+                    🖨️ Print List
+                </button>
             </div>
             <div className="overflow-x-auto">
                 <table className="w-full">
